@@ -1,0 +1,179 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Feb 5, 2018, 11:30:53 AM
+    Author     : root
+*/
+
+.keyword-picker #datepicker-dropdown {
+    width: auto !important;
+    overflow: visible !important;
+    right: auto!important;
+    left: 0;
+}
+.date-range-field {
+    min-height: 30px;
+    border-radius: 4px;
+}
+.date-range-field span.main {
+    font-size: 14px;
+    line-height: 30px;
+}
+.select-picker > div {
+    float: right;
+    margin-left: 20px;
+}
+.select-kw select {
+    line-height: 30px;
+}
+.select-kw select {
+    height: 30px;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: 0;
+}
+.table-kw {
+    margin-top: 10px;
+    min-width: 940px;
+    overflow-x: auto;
+}
+.left-kw {
+    width: calc(100% - 240px);
+    float: left;
+}
+.center-kw {
+    width: 240px;
+    float: left;
+    position: relative;
+}
+.right-kw {
+    width: 150px;
+    overflow: hidden;
+    float: left;
+}
+.table-three .left-kw .table thead th {
+    height: 67px;
+}
+.center-kw td,
+.left-kw td {
+    height: 45px;
+    vertical-align: middle !important;
+}
+.doubleScroll-scroll-wrapper {
+    position: absolute;
+    top: 48px;
+    left: 0;
+}
+.table-kw .table {
+    margin-bottom: 0;
+}
+.left-col-kw {
+    width: 220px;
+    float: left;
+    border: solid 1px #efefef;
+    padding: 15px;
+    background-color: #fff;
+}
+.left-col-kw .item-flexW {
+    flex-basis: 100%;
+    max-width: 100%;
+    margin-right: 0;
+}
+.right-col-kw {
+    width: calc(100% - 230px);
+    margin-left: 10px;
+    padding: 15px;
+    border: solid 1px #efefef;
+    margin-bottom: 15px;
+    background-color: #fff;
+    float: left;
+}
+.scroll-table-kw {
+    overflow-x: auto;
+}
+.content-scroll {
+    min-width: 1024px;
+    overflow-x: auto;
+}
+.center-kw .date-daily th{
+    padding-top: 25px;
+}
+.center-kw tr:first-child td {
+    padding-top: 27px;
+}
+@-moz-document url-prefix(){
+    .table-three .left-kw .table thead th {
+        height: 54px;
+    }
+    .doubleScroll-scroll-wrapper {
+        top: 35px;
+    }
+}
+
+
+
+
+
+
+@media (max-width: 1340px) {
+    .double-scroll::-webkit-scrollbar,
+    .double-scroll::-webkit-scrollbar-thumb{
+        width: 0px;
+        background: transparent;
+        display: none;
+    }
+    .center-kw td, .left-kw td {
+        height: 60px;
+    }
+    .center-kw tr:first-child td {
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+}
+@media (max-width: 767px) {
+    .left-col-kw {
+        width: 100%;
+    }
+    .right-col-kw {
+        width: 100%;
+        margin-top: 10px;
+        margin-left: 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
