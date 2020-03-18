@@ -1,24 +1,16 @@
 import React from 'react';
 import { Component } from "react";
 
-export default class Footer extends Component {
+const Footer = () => {
 
-    render() {
-        return (
-            <footer class="main-footer">
-                <div class="bottom-mieruca">
-                    <div class="container-fluid padd_none">
-                        <ul class="ls-bottom clearfix">
-                        </ul>
-                    </div>
-                </div>
-                <ul class="ls-nav">
-                    <li><a href="https://app.mieru-ca.com/faber-extract/privacy-policy" class="lb_privacy">Privacy Policy</a></li>
-                    <li><a href="https://app.mieru-ca.com/faber-extract/terms-of-service" class="lb_term">Terms</a></li>
-                    <li><a href="https://app.mieru-ca.com/faber-extract/guide" class="lb_condition">Conditions</a></li>
-                </ul>
-                <p class="lb_footer">2017 &copy; Faber Company, Inc. All Rights Reserved.</p>
-            </footer>
-        )
-    }
+    return (
+        <footer class="main-footer">
+            <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
+            All rights reserved.
+        <div class="float-right d-none d-sm-inline-block">
+                <b>Version</b> 3.0.3-pre
+        </div>
+        </footer>
+    )
 }
+export default Footer;

@@ -5,11 +5,6 @@ import Input from 'react-validation/build/input';
 import { Component } from "react";
 import { Button, FormGroup, FormControl, FormLabel  } from "react-bootstrap";
 
-import '../../components/css/AdminMRC.css';
-import '../../components/css/custom-theme.css';
-import '../../components/css/reponsive.css';
-import '../../components/css/template.css';
-import '../../components/css/login.css';
 
 const txtFieldState = {
   value: "",
