@@ -4,7 +4,7 @@ import './App.css';
 
 import Table from './components/table';
 import Home from './pages/home/index';
-import Login from './pages/login/index';
+import Widgets from './pages/widgets/index';
 
 import Header from './components/header';
 import Footer from './components/footer';
@@ -20,7 +20,7 @@ class App extends React.Component {
           <Router>
             <Switch>
               <Route exact path="/" component={Home} />
-              {/* <Route exact path="/login" component={Login} /> */}
+              <Route exact path="/widgets" component={Widgets} />
             </Switch>
           </Router>
         </div>

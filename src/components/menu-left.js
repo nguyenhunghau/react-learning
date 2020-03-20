@@ -17,10 +17,10 @@ const MenuLeft = () => {
     const navData = [
         {
             mainMenu: "DashBoard", isActive: true, isExpand: false, icon: "nav-icon fas fa-tachometer-alt", childMenu:
-                [{ text: "DashBoard 1", icon: "far fa-circle nav-icon" }, { text: "DashBoard 2", icon: "far fa-circle nav-icon" }]
+                [{ text: "DashBoard 1", link: "/", icon: "far fa-circle nav-icon" }, { text: "DashBoard 2", icon: "far fa-circle nav-icon" }]
         },
         {
-            mainMenu: "Widgets", isActive: false, icon: "nav-icon fas fa-th"
+            mainMenu: "Widgets", link: "widgets", isActive: false, icon: "nav-icon fas fa-th"
         },
     ]
 

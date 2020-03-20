@@ -1,28 +1,31 @@
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import {
+    Link
+  } from "react-router-dom";
 
 const NavItem = (item) => {
     const [isExpand, setIsExpand] = useState(item.isExpand);
-    
+    const [isActive, setIsActive] = useState(window.location.pathname === ('/' + (item.link || '')));
+
     return (
         <li className={isExpand ? 'nav-item has-treeview menu-open' : 'nav-item'}>
-            <a href="#" className={item.isActive ? 'nav-link active' : 'nav-link'} onClick={() => setIsExpand(!isExpand)} >
+            <Link to={item.link || '#'} className={isActive ? 'nav-link active' : 'nav-link'} onClick={() => setIsExpand(!isExpand)} >
                 <i class={item.icon}></i>
                 <p>
                     {item.mainMenu}
-                    {item.childMenu ? <i class="right fas fa-angle-left"></i>: ''}
+                    {item.childMenu ? <i class="right fas fa-angle-left"></i> : ''}
                 </p>
-            </a>
-
+            </Link>
             <ul class="nav nav-treeview">
                 {
                     item.childMenu ?
                         item.childMenu.map(child =>
                             <li class="nav-item" className={'nav-item '}>
-                                <a href="./index.html" class="nav-link">
+                                <Link to={child.link || '#'} class="nav-link">
                                     <i class={child.icon}></i>
                                     <p>{child.text}</p>
-                                </a>
+                                </Link>
                             </li>
                         ) : ''
                 }
