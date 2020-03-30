@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Component } from "react";
 import {
     BrowserRouter as Router,
@@ -7,22 +7,33 @@ import {
     Link
 } from "react-router-dom";
 
-import './css/style.css';
+import '../css/style.css';
 import NavItem from './nav-item';
-import adminLTELogo from './img/AdminLTELogo.png';
-import userLogo from './img/user2-160x160.jpg';
+import adminLTELogo from '../img/AdminLTELogo.png';
+import userLogo from '../img/user2-160x160.jpg';
 
 const MenuLeft = () => {
 
-    const navData = [
-        {
-            mainMenu: "DashBoard", isActive: true, isExpand: false, icon: "nav-icon fas fa-tachometer-alt", childMenu:
-                [{ text: "DashBoard 1", link: "/", icon: "far fa-circle nav-icon" }, { text: "DashBoard 2", icon: "far fa-circle nav-icon" }]
-        },
-        {
-            mainMenu: "Widgets", link: "widgets", isActive: false, icon: "nav-icon fas fa-th"
-        },
-    ]
+    const [navData, setNavData] = useState([]);
+    
+
+    // const navData = [
+    //     {
+    //         mainMenu: "DashBoard", isActive: true, isExpand: false, icon: "nav-icon fas fa-tachometer-alt", childMenu:
+    //             [{ text: "DashBoard 1", link: "/", icon: "far fa-circle nav-icon" }, { text: "DashBoard 2", icon: "far fa-circle nav-icon" }]
+    //     },
+    //     {
+    //         mainMenu: "Widgets", link: "widgets", isActive: false, icon: "nav-icon fas fa-th"
+    //     },
+    // ]
+
+    useEffect(() => {
+        fetch('http://localhost:8088/getList')
+        .then(resp => resp.json())
+        .then(resp => {
+            setNavData(resp);
+        })
+    });
 
     const expandChild = (ev) => {
         console.log(ev);
@@ -48,9 +59,7 @@ const MenuLeft = () => {
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         {
-                            navData.map(item =>
-                                NavItem(item)
-                            )
+                            navData.map(item => <NavItem item={item} />)
                         }
 
                         {/* <li class="nav-item has-treeview menu-open">

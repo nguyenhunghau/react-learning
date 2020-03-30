@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Header from '../../components/header';
-import MenuLeft from '../../components/menu-left';
+import Header from '../../components/header/header';
+import MenuLeft from '../../components/menu/menu-left';
 
 import '../../components/plugins/fontawesome-free/css/all.min.css';
 import '../../components/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css';

@@ -6,9 +6,6 @@ import Table from './components/table';
 import Home from './pages/home/index';
 import Widgets from './pages/widgets/index';
 
-import Header from './components/header';
-import Footer from './components/footer';
-import MenuLeft from './components/menu-left';
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
 class App extends React.Component {

@@ -4,8 +4,9 @@ import {
     Link
   } from "react-router-dom";
 
-const NavItem = (item) => {
-    const [isExpand, setIsExpand] = useState(item.isExpand);
+function NavItem(props) {
+    var item = props.item;
+    const [isExpand, setIsExpand] = useState(false);
     const [isActive, setIsActive] = useState(window.location.pathname === ('/' + (item.link || '')));
 
     return (
@@ -13,7 +14,7 @@ const NavItem = (item) => {
             <Link to={item.link || '#'} className={isActive ? 'nav-link active' : 'nav-link'} onClick={() => setIsExpand(!isExpand)} >
                 <i class={item.icon}></i>
                 <p>
-                    {item.mainMenu}
+                    {item.text}
                     {item.childMenu ? <i class="right fas fa-angle-left"></i> : ''}
                 </p>
             </Link>
@@ -21,8 +22,8 @@ const NavItem = (item) => {
                 {
                     item.childMenu ?
                         item.childMenu.map(child =>
-                            <li class="nav-item" className={'nav-item '}>
-                                <Link to={child.link || '#'} class="nav-link">
+                            <li class="nav-item" >
+                                <Link to={child.link || '#'} className="nav-link">
                                     <i class={child.icon}></i>
                                     <p>{child.text}</p>
                                 </Link>
