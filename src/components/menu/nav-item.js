@@ -2,12 +2,28 @@
 import React, { useState, useEffect } from "react";
 import {
     Link
-  } from "react-router-dom";
+} from "react-router-dom";
 
 function NavItem(props) {
     var item = props.item;
     const [isExpand, setIsExpand] = useState(false);
-    const [isActive, setIsActive] = useState(window.location.pathname === ('/' + (item.link || '')));
+    const [isActive, setIsActive] = useState(() => checkActiveLink());
+
+    function checkActiveLink() {
+        var pathName = window.location.pathname;
+        var result = false;
+        if (pathName === '/' + (item.link || '')) {
+            result = true;
+        }
+        if (item.childMenu) {
+            item.childMenu.map(child => {
+                if (pathName === '/' + child.link) {
+                    result = true;
+                }
+            });
+        }
+        return result;
+    };
 
     return (
         <li className={isExpand ? 'nav-item has-treeview menu-open' : 'nav-item'}>
@@ -23,7 +39,7 @@ function NavItem(props) {
                     item.childMenu ?
                         item.childMenu.map(child =>
                             <li class="nav-item" >
-                                <Link to={child.link || '#'} className="nav-link">
+                                <Link to={child.link || '#'} className={('/' + child.link) === window.location.pathname? "nav-link active": "nav-link"}>
                                     <i class={child.icon}></i>
                                     <p>{child.text}</p>
                                 </Link>

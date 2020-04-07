@@ -14,26 +14,31 @@ import userLogo from '../img/user2-160x160.jpg';
 
 const MenuLeft = () => {
 
-    const [navData, setNavData] = useState([]);
+    // const [navData, setNavData] = useState([]);
     
 
-    // const navData = [
-    //     {
-    //         mainMenu: "DashBoard", isActive: true, isExpand: false, icon: "nav-icon fas fa-tachometer-alt", childMenu:
-    //             [{ text: "DashBoard 1", link: "/", icon: "far fa-circle nav-icon" }, { text: "DashBoard 2", icon: "far fa-circle nav-icon" }]
-    //     },
-    //     {
-    //         mainMenu: "Widgets", link: "widgets", isActive: false, icon: "nav-icon fas fa-th"
-    //     },
-    // ]
+    const navData = [
+        {
+            text: "DashBoard", isActive: true, isExpand: false, icon: "nav-icon fas fa-tachometer-alt", childMenu:
+                [{ text: "DashBoard 1", link: "home", icon: "far fa-circle nav-icon" }, { text: "DashBoard 2", link: "/2", icon: "far fa-circle nav-icon" }]
+        },
+        {
+            text: "Widgets", link: "widgets", isActive: false, icon: "nav-icon fas fa-th"
+        },
+        {
+            text: "Component", isActive: true, isExpand: false, icon: "nav-icon fas fa-edit", childMenu:
+                [{ text: "Validation", link: "validation", icon: "far fa-circle nav-icon" }, 
+                { text: "Tables", link: "table", icon: "nav-icon fas fa-table" }]
+        },
+    ]
 
-    useEffect(() => {
-        fetch('http://localhost:8088/getList')
-        .then(resp => resp.json())
-        .then(resp => {
-            setNavData(resp);
-        })
-    });
+    // useEffect(() => {
+    //     fetch('http://localhost:8088/getList')
+    //     .then(resp => resp.json())
+    //     .then(resp => {
+    //         setNavData(resp);
+    //     })
+    // });
 
     const expandChild = (ev) => {
         console.log(ev);
