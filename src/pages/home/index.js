@@ -1,22 +1,40 @@
-import React, { useState } from "react";
-import { Component } from "react";
+import React, { useState, useEffect } from "react";
+import { Component } from "react-bootstrap";
+import HomeTab from "./tab";
 import { DataTable } from "react-data-table-component";
 import MyComponent from "./table";
-import Header from '../../components/header';
-import MenuLeft from '../../components/menu-left';
-import '../../components/css_common.css';
+import Header from '../../components/header/header';
+import MenuLeft from '../../components/menu/menu-left';
+import axios from 'axios';
+import '../../components/plugins/fontawesome-free/css/all.min.css';
+import '../../components/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css';
+import '../../components/plugins/icheck-bootstrap/icheck-bootstrap.min.css';
+import '../../components/plugins/jqvmap/jqvmap.min.css';
+import '../../components/css/adminlte.min.css';
+import '../../components/css/adminlte.min.css';
+// import '../../components/plugins/bootstrap/js/bootstrap.bundle.min.js';
 
 const Home = (param) => {
 
     const [collapsemenu, setCollapsemenu] = useState(false);
+    const [data, setData] = useState(null);
+    React.useEffect(() => { // Pass in a callback function!
+        axios.get(`https://jsonplaceholder.typicode.com/users`)
+            .then(res => {
+                const persons = res.data;
+                console.log(persons);
+                setData({ persons });
+            })
+    }, []);
+
 
     const changeMenu = () => {
         setCollapsemenu(!collapsemenu);
     }
 
     return (
-        <div className={collapsemenu? 'sidebar-mini layout-fixed sidebar-collapse': 'wrapper'}>
-            <Header changeMenu={changeMenu}/>
+        <div className={collapsemenu ? 'sidebar-mini layout-fixed sidebar-collapse' : 'wrapper'}>
+            <Header changeMenu={changeMenu} />
             <MenuLeft />
             <div class="content-wrapper">
                 {/*  Content Header (Page header)  */}
@@ -24,7 +42,7 @@ const Home = (param) => {
                     <div class="container-fluid">
                         <div class="row mb-2">
                             <div class="col-sm-6">
-                                <h1 class="m-0 text-dark">Dashboard</h1>
+                                <h1 class="m-0 text-dark" style={{ textAlign: "left" }}>Dashboard</h1>
                             </div>
                             <div class="col-sm-6">
                                 <ol class="breadcrumb float-sm-right">
@@ -116,17 +134,19 @@ const Home = (param) => {
                                             Sales
                 </h3>
                                         <div class="card-tools">
-                                            <ul class="nav nav-pills ml-auto">
+                                            {/* <ul class="nav nav-pills ml-auto">
+
                                                 <li class="nav-item">
                                                     <a class="nav-link active" href="#revenue-chart" data-toggle="tab">Area</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#sales-chart" data-toggle="tab">Donut</a>
                                                 </li>
-                                            </ul>
+                                            </ul> */}
+                                            <HomeTab />
                                         </div>
                                     </div>
-              <div class="card-body">
+                                    <div class="card-body">
                                         <div class="tab-content p-0">
                                             {/*  Morris chart - Sales  */}
                                             <div class="chart tab-pane active" id="revenue-chart">
@@ -137,7 +157,7 @@ const Home = (param) => {
                                             </div>
                                         </div>
                                     </div>
-            </div>
+                                </div>
                                 {/*  /.card  */}
 
                                 {/*  DIRECT CHAT  */}
