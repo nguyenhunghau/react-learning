@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Component } from "react-bootstrap";
 import HomeTab from "./tab";
 import { DataTable } from "react-data-table-component";
 import MyComponent from "./table";
 import Header from '../../components/header/header';
 import MenuLeft from '../../components/menu/menu-left';
+import axios from 'axios';
 import '../../components/plugins/fontawesome-free/css/all.min.css';
 import '../../components/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css';
 import '../../components/plugins/icheck-bootstrap/icheck-bootstrap.min.css';
@@ -16,6 +17,16 @@ import '../../components/css/adminlte.min.css';
 const Home = (param) => {
 
     const [collapsemenu, setCollapsemenu] = useState(false);
+    const [data, setData] = useState(null);
+    React.useEffect(() => { // Pass in a callback function!
+        axios.get(`https://jsonplaceholder.typicode.com/users`)
+            .then(res => {
+                const persons = res.data;
+                console.log(persons);
+                setData({ persons });
+            })
+    }, []);
+
 
     const changeMenu = () => {
         setCollapsemenu(!collapsemenu);
