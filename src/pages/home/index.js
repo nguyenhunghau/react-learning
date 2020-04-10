@@ -4,13 +4,7 @@ import { DataTable } from "react-data-table-component";
 import MyComponent from "./table";
 import Header from '../../components/header';
 import MenuLeft from '../../components/menu-left';
-import '../../components/plugins/fontawesome-free/css/all.min.css';
-import '../../components/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css';
-import '../../components/plugins/icheck-bootstrap/icheck-bootstrap.min.css';
-import '../../components/plugins/jqvmap/jqvmap.min.css';
-import '../../components/css/adminlte.min.css';
-import '../../components/css/adminlte.min.css';
-// import '../../components/plugins/bootstrap/js/bootstrap.bundle.min.js';
+import '../../components/css_common.css';
 
 const Home = (param) => {
 
