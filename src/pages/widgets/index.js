@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, {useState } from "react";
 import Header from '../../components/header/header';
 import MenuLeft from '../../components/menu/menu-left';
+import {
+    useParams
+  } from 'react-router-dom'
 
 import '../../components/plugins/fontawesome-free/css/all.min.css';
 import '../../components/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css';
@@ -18,11 +21,13 @@ const Widgets = (param) => {
         setCollapsemenu(!collapsemenu);
     }
 
+    let { id } = useParams();
+
     return (
         <div className={collapsemenu ? 'sidebar-mini layout-fixed sidebar-collapse' : 'wrapper'}>
             <Header changeMenu={changeMenu} />
             <MenuLeft />
-            <div class="content-wrapper">
+            <div class="content-wrapper">{id}
                 <section class="content-header">
                     <div class="container-fluid">
                         <div class="row mb-2">

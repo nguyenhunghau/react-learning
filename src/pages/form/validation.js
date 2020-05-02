@@ -1,15 +1,36 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from '../../components/header/header';
 import MenuLeft from '../../components/menu/menu-left';
+import Clock from './demo'
 import { useForm } from 'react-hook-form'
 
 export default function Validation() {
 
     const [collapsemenu, setCollapsemenu] = useState(false);
+    
+    const useClock = () => {
+        const [second, setSecond]  = useState(0);
+        const [checkChange, setCheckChange] = useState(true);
+        const changeTime = () => {
+            setCheckChange(!checkChange);
+        };
+    
+        useEffect(() => {
+            if(checkChange)  {
+                const interval = setInterval(function() {
+                    setSecond(second + 1);
+                }, 1000);
+                return() => clearInterval(interval);
+            }
+            
+        }, [checkChange, second]);
+        return second;
+    }
 
     const changeMenu = () => {
         setCollapsemenu(!collapsemenu);
     }
+   
 
     const { register, handleSubmit, watch, errors } = useForm();
     const onSubmit = data => { console.log(data) }
@@ -46,10 +67,11 @@ export default function Validation() {
                                 {/*  jquery validation  */}
                                 <div class="card card-primary">
                                     <div class="card-header">
-                                        <h3 class="card-title">Quick Example <small>jQuery Validation</small></h3>
+                                        <h3 class="card-title">{useClock()} <small>jQuery Validation</small></h3>
                                     </div>
                                     {/*  /.card-header  */}
                                     {/*  form start  */}
+                                    {/* <Clock second={useClock} changeTime = {changeTime}/> */}
                                     <form role="form" id="quickForm" onSubmit={handleSubmit(onSubmit)}>
                                         <div class="card-body">
                                             <div class="form-group">
