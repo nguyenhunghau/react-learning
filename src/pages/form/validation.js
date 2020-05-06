@@ -86,8 +86,8 @@ export default function Validation() {
                                             </div>
                                             <div class="form-group mb-0">
                                                 <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" name="terms" class="custom-control-input" id="exampleCheck1" />
-                                                    
+                                                    <input type="checkbox" name="terms" class="custom-control-input" id="exampleCheck1"  ref={register({ required: true })} />
+                                                    {errors.terms && <span>This field is required</span>}
                                                     <label class="custom-control-label" for="exampleCheck1">I agree to the <a href="#">terms of service</a>.</label>
                                                 </div>
                                             </div>
