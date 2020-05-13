@@ -8,6 +8,8 @@ import Validation from './pages/form/validation';
 import Table from './pages/form/table';
 import Login from './pages/login';
 import ModalDemo from './pages/form/modal';
+import DemoMemo from './pages/demo/memo';
+import DemoRedux from './pages/demo/redux';
 
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
@@ -26,6 +28,8 @@ class App extends React.Component {
               <Route exact path="/table" component={Table} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/modal" component={ModalDemo} />
+              <Route exact path="/memo" component={DemoMemo} />
+              <Route exact path="/redux" component={DemoRedux} />
             </Switch>
           </Router>
         </div>
